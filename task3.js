@@ -12,16 +12,14 @@ let total = 0;
 let flag = false;
 
 do {
-    if (
-        number        
-    ) {
-        flag = true;
-        total += number;
-        number = Number(prompt('Введіть число'));
-    } else {
-        flag = false;
-        alert(`Загальна сума введених чисел дорівнює ${total}`);
-    }
+	if (number) {
+		flag = true;
+		total += number;
+		number = Number(prompt('Введіть число'));
+	} else {
+		flag = false;
+		alert(`Загальна сума введених чисел дорівнює ${total}`);
+	}
 }
 while (flag);
 
