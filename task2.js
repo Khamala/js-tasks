@@ -13,3 +13,5 @@ if (min <= 15) {
 } else if (min > 45 && min < 60) {
     console.log(`${min} у четвертій чверті`);
 } 
+
+console.log('Hello');
