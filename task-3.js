@@ -25,4 +25,4 @@ favouriteMovies.forEach(({ director, name }) => {
   if (!uniqDirectors[director]) uniqDirectors[director] = [];
   uniqDirectors[director].push(name);
 });
-console.log(uniqDirectors);
+// console.log(uniqDirectors);
