@@ -7,24 +7,18 @@
 
 const startTimer = (arr) => {
    let value = 0;
-   let flag = 0; 
+   let isReverse = false; 
    const inteval = setInterval(() => {
-      if (value < arr.length && !flag) {
-         console.log(arr[value]);
-         value += 1;
-         if (value == arr.length) {
-            flag = 1;
-            value -= 1;
-         }
-      } else  if (value <= arr.length && flag) {
-         value -= 1;
-         console.log(arr[value]);
-         if (value == 0) {
+      console.log(arr[value]);
+         if (value == arr.length - 1 && !isReverse) {
+            isReverse = true;
+            value = 0;
+            arr.reverse();
+         } else if (value == arr.length - 1 && isReverse) {
             clearInterval(inteval);
          }
-      }
-
-   }, 2000);
+      value += 1;
+   }, 500);
 }
 
 startTimer(["a", "b", "c", "d", "e", "f"]);
