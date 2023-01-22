@@ -1,41 +1,34 @@
-import apiInstance from '../services/api.js';
+import apiInstance from "../services/api.js";
 
 // PRODUCTS
 
 const getProducts = async () => {
-}
+  return (await apiInstance.get("/products")).data;
+};
 
-const getProductById = async () => {
-}
+const getProductById = async () => {};
 
-const getCategories = async () => {
-}
+const getCategories = async () => {};
 
-const searchProductsByCategory = async () => {
-}
+const searchProductsByCategory = async () => {};
 
-const filterProducts = async () => {
-}
+const filterProducts = async () => {};
 
-const getProductsByLastCategory = async () => {
-}
-const addProduct = async () => {
-}
+const getProductsByLastCategory = async () => {};
+const addProduct = async () => {};
 
-const updateProduct = async () => {
-}
+const updateProduct = async () => {};
 
-const deleteProduct = async () => {
-}
+const deleteProduct = async () => {};
 
 export default {
-getProducts,
-getProductById,
-searchProductsByCategory,
-filterProducts,
-getCategories,
-getProductsByLastCategory,
-addProduct,
-updateProduct,
-deleteProduct,
-}
+  getProducts,
+  getProductById,
+  searchProductsByCategory,
+  filterProducts,
+  getCategories,
+  getProductsByLastCategory,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+};
