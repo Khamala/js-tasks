@@ -1,24 +1,26 @@
 const renderProductsMarkup = (products) => {
-  return products
-    .map(({ brand, title, price }) => {
-      return ` <li>
+	return products
+		.map(({ brand, title, price }) => {
+			return ` <li>
           <h3>${title}</h3>
           <p>${brand}</p>
           <p>${price}</p>
         </li>`;
-    })
-    .join("");
+		})
+		.join("");
 };
 
-const renderProductByIdMarkup = ({ brand, title, price }) => {
-  return `<div>
+const renderProductByIdMarkup = ({ brand, title, description, price }) => {
+	const brandRow = brand ? `<p>${brand}</p>` : "";
+	return `<div>
           <h3>${title}</h3>
-          <p>${brand}</p>
+		  ${brandRow}
+          <p>${description}</p>
           <p>${price}</p>
-</div>`
+</div>`;
 };
 
 export default {
-  renderProductsMarkup,
-  renderProductByIdMarkup,
+	renderProductsMarkup,
+	renderProductByIdMarkup,
 };

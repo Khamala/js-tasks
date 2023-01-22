@@ -3,34 +3,37 @@ import apiInstance from "../services/api.js";
 // PRODUCTS
 
 const getProducts = async () => {
-  return (await apiInstance.get("/products")).data;
+	return (await apiInstance.get("/products")).data;
 };
 
 const getProductById = async (id) => {
-  return (await apiInstance.get(`/products/${id}`)).data;
+	return (await apiInstance.get(`/products/${id}`)).data;
 };
 
-const getCategories = async () => {};
+const getCategories = async () => { };
 
-const searchProductsByCategory = async () => {};
+const searchProductsByCategory = async () => { };
 
-const filterProducts = async () => {};
+const filterProducts = async () => { };
 
-const getProductsByLastCategory = async () => {};
-const addProduct = async () => {};
+const getProductsByLastCategory = async () => { };
 
-const updateProduct = async () => {};
+const addProduct = async (product) => {
+	return await (await apiInstance.post('/products/add', product)).data
+};
 
-const deleteProduct = async () => {};
+const updateProduct = async () => { };
+
+const deleteProduct = async () => { };
 
 export default {
-  getProducts,
-  getProductById,
-  searchProductsByCategory,
-  filterProducts,
-  getCategories,
-  getProductsByLastCategory,
-  addProduct,
-  updateProduct,
-  deleteProduct,
+	getProducts,
+	getProductById,
+	searchProductsByCategory,
+	filterProducts,
+	getCategories,
+	getProductsByLastCategory,
+	addProduct,
+	updateProduct,
+	deleteProduct,
 };

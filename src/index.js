@@ -9,32 +9,50 @@ import renderService from "./services/markupService";
 
 // Завдання 1
 const renderProducts = async () => {
-  const listProducts = document.querySelector("#allProducts");
-  const data = await productsApi.getProducts();
-  listProducts.innerHTML = renderService.renderProductsMarkup(data.products);
+	const listProducts = document.querySelector("#allProducts");
+	const data = await productsApi.getProducts();
+	listProducts.innerHTML = renderService.renderProductsMarkup(data.products);
 };
 
 // renderProducts();
 
 // Завдання 2
 const renderProductById = () => {
-  const form = document.querySelector("#singleProductForm");
-  const div = document.querySelector('#singleProduct');
-  form.addEventListener ('submit', async (event) => { 
-    event.preventDefault()
-    const productId = event.target.elements.id.value;
-    
-    const product = await productsApi.getProductById(productId);
-    const productMarkUp = renderService.renderProductByIdMarkup(product);
-    div.innerHTML = productMarkUp;
+	const form = document.querySelector("#singleProductForm");
+	const div = document.querySelector('#singleProduct');
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault()
+		const productId = event.target.elements.id.value;
+		const product = await productsApi.getProductById(productId);
 
-
-  
-  });
+		const productMarkUp = renderService.renderProductByIdMarkup(product);
+		div.innerHTML = productMarkUp;
+	});
 
 }
 renderProductById()
 // Завдання 3
+
+const createProduct = () => {
+	const clientProductForm = document.querySelector('#clientProductForm');
+	const productSection = document.querySelector('#newProductSection')
+	console.dir(clientProductForm);
+	clientProductForm.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const { title, description, price } = e.target.elements;
+		const product = {
+			title: title.value,
+			description: description.value,
+			price: price.value,
+		};
+		const productNew = await productsApi.addProduct(product);
+		const productMarkUp = renderService.renderProductByIdMarkup(productNew);
+		productSection.innerHTML = productMarkUp;
+	})
+}
+
+createProduct();
+
 
 // Завдання 4
 
