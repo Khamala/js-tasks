@@ -14,10 +14,26 @@ const renderProducts = async () => {
   listProducts.innerHTML = renderService.renderProductsMarkup(data.products);
 };
 
-renderProducts();
+// renderProducts();
 
 // Завдання 2
+const renderProductById = () => {
+  const form = document.querySelector("#singleProductForm");
+  const div = document.querySelector('#singleProduct');
+  form.addEventListener ('submit', async (event) => { 
+    event.preventDefault()
+    const productId = event.target.elements.id.value;
+    
+    const product = await productsApi.getProductById(productId);
+    const productMarkUp = renderService.renderProductByIdMarkup(product);
+    div.innerHTML = productMarkUp;
 
+
+  
+  });
+
+}
+renderProductById()
 // Завдання 3
 
 // Завдання 4

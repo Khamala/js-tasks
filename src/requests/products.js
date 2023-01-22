@@ -6,7 +6,9 @@ const getProducts = async () => {
   return (await apiInstance.get("/products")).data;
 };
 
-const getProductById = async () => {};
+const getProductById = async (id) => {
+  return (await apiInstance.get(`/products/${id}`)).data;
+};
 
 const getCategories = async () => {};
 

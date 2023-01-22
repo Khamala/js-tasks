@@ -10,7 +10,13 @@ const renderProductsMarkup = (products) => {
     .join("");
 };
 
-const renderProductByIdMarkup = () => {};
+const renderProductByIdMarkup = ({ brand, title, price }) => {
+  return `<div>
+          <h3>${title}</h3>
+          <p>${brand}</p>
+          <p>${price}</p>
+</div>`
+};
 
 export default {
   renderProductsMarkup,
